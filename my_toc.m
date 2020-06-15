@@ -1,15 +1,16 @@
 function [t] = my_toc(ts, print, use_min)
-%MY_TOC prints a formatted toc from a tic context in a similar format
+%MY_TOC Prints a formatted toc from a tic context in a similar format
 % like the other messages we have. Also supports displaying only in seconds
 % minutes & seconds.
 %
-% Author: Andreas Grammenos (ag926@cl.cam.ac.uk)
+% Author Andreas Grammenos (ag926@cl.cam.ac.uk)
 %
-% Last touched date: 17/07/2019
+% Last touched date 06/06/2018
 % 
 % License: GPLv3
-%
-  % check if the print flag is up
+%   
+
+  % check if we print
   if nargin < 2
     print = 1;
   end

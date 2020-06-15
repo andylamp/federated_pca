@@ -1,5 +1,6 @@
-function [U, R, err_reg, T, ErrFro] = grouse(I, J, S, numr, numc, maxrank, step_size, ...
-    maxCycles, en_sparse, rperm, no_err, Uinit) %, Ti, Yroff, srr
+function [U, R, err_reg, T, ErrFro] = grouse(I, J, S, numr, numc, params) 
+%GROUSE Grassman Rank-One Update Subspace Estimation matrix completion code
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  GROUSE (Grassman Rank-One Update Subspace Estimation) matrix completion code 
 %  by Ben Recht and Laura Balzano, February 2010.
@@ -30,12 +31,14 @@ function [U, R, err_reg, T, ErrFro] = grouse(I, J, S, numr, numc, maxrank, step_
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% scope in global variables
-global use_blk_err
-
-% default block size
-blk_size = 100;
-cnt = 1;
+% assign wrapper parameters
+err_blk_size = params.err_blk_size;
+max_rank = params.max_rank;
+step_size = params.step_size;
+max_cycles = params.max_cycles;
+en_sparse = params.en_sparse;
+rperm = params.rperm;
+no_err = params.no_err;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,37 +61,37 @@ end
 %Main Algorithm
 %
 
-if (nargin < 12)
-    % initialize U to a random r-dimensional subspace 
-    U = orth(randn(numr,maxrank)); 
+if ~isfield(params, 'Uinit')
+  % initialize U to a random r-dimensional subspace 
+  U = orth(randn(numr,max_rank)); 
 else
-    U = Uinit;
+  U = params.Uinit;
 end
 
-% default is disabled, we calculate the error
-if (nargin < 11)
-    no_err = 0;
-end
+err_reg = zeros(max_cycles*numc,1);
 
-err_reg = zeros(maxCycles*numc,1);
-
-fprintf("\n\t ** Max Passes: %d", maxCycles);
+fprintf("\n\t ** Max Passes: %d", max_cycles);
 if rperm == 1
-    fprintf('\n\t ** Random Column Permutation is ENABLED\n\n');
+  fprintf('\n\t ** Random Column Permutation is ENABLED\n\n');
 else
-    fprintf('\n\t ** Random Column Permutation is DISABLED\n\n');
+  fprintf('\n\t ** Random Column Permutation is DISABLED\n\n');
 end
 
-% initialise error metrics
-if use_blk_err == 1
-  ErrFro = nan(maxCycles, floor(numc/blk_size));
-  T = nan(maxCycles, floor(numc/blk_size));
-else
-  ErrFro = nan(maxCycles, numc);
-  T = 1:maxCycles*numc;
+% check if need to pre-allocate the error metrics
+if no_err == 0
+  % initialise error metrics
+  if params.use_blk_err == 1
+    ErrFro = nan(max_cycles, floor(numc/err_blk_size));
+    T = nan(max_cycles, floor(numc/err_blk_size));
+    % counter for block error (if enabled)
+    cnt = 1;
+  else
+    ErrFro = nan(max_cycles, numc);
+    T = 1:max_cycles*numc;
+  end
 end
 
-for outiter = 1:maxCycles
+for outiter = 1:max_cycles
     
     fprintf('\t !! Pass %d...\n', outiter);
     
@@ -143,8 +146,8 @@ for k=1:numc
     % this is disabled in the speed run
     if no_err == 0
       % check if we use block error
-      if use_blk_err == 1        
-        if mod(k, blk_size) == 0
+      if params.use_blk_err == 1        
+        if mod(k, err_blk_size) == 0
           y_c = Yc(:, 1:k);
           YrHat_c = (U*U')*y_c;
           temp = sum(sum((y_c-YrHat_c).^2, 1));
@@ -170,7 +173,7 @@ end
 if no_err == 0
   ErrFro = ErrFro(:);
   T = T(:);
-  if use_blk_err == 1
+  if params.use_blk_err == 1
     % avoid the first block error
     T = [0; T];
     ErrFro = [0; ErrFro];
@@ -185,7 +188,7 @@ end
 % need to compute these weights if you want to make predictions about these
 % columns.
 %fprintf('Find column weights...');
-R = zeros(numc, maxrank);
+R = zeros(numc, max_rank);
 for k= 1:numc     
     % Pull out the relevant indices and revealed entries for this column
     idx = find(Indicator(:, k));

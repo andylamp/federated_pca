@@ -1,10 +1,13 @@
 function [B_out, nz_row, alpha] = fd_rotate_sketch(B_in, ell, alpha_prev)
-%FD_ROTATE_SKETCH the main shirk and rotation that's performed when
-%receiving a new row and our buffer is full from our stream.
+%FD_ROTATE_SKETCH the main shirk and rotation step of FD.
+% This step is performed when receiving a new row and our buffer is 
+% full from our stream.
+%
+% As described in: https://arxiv.org/abs/1501.01711.pdf
 %
 % Author: Andreas Grammenos (ag926@cl.cam.ac.uk)
 %
-% Last touched date: 30/12/2018
+% Last touched date: 17/04/2020
 % 
 % License: GPLv3
 %
