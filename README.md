@@ -15,15 +15,15 @@ algorithms, and in the absence of communication latency, it exhibits attractive 
 
 The code is generally self-contained and all datasets are included or generated thus, in theory, just having `Matlab`  
 installed should be more than enough. It has to be noted though that due the recent `Matlab` changes on how it handles 
-character and string arrays you should use a recent version of it -- the code was developed and tested in `Matlab` 
-`2019a` build `9.6.0.1099231` but was tested also on versions `2018a` and `2018b`; moreover, to address different OSes, 
+character and string arrays you should use a recent version of it -- the code was developed and tested in `R2020a` 
+(build `9.8.0.1380330`) but was tested also on versions `2018{a,b}` and `2019{a,b}`; moreover, to address different OSes, 
 care has been taken so that this code runs without any problems both on Windows-based machines and Unix-based ones.
 
 # Comparisons
 
 In this instance we perform comparisons using both synthetic and real datasets with and without input perturbation masks. 
-All our experiments were computed on a workstation using an AMD 1950X CPU with 16 cores at 4.0GHz, 128 GB 3200 MHz 
-DDR4 RAM, and Matlab R2020a (build 9.8.0.1380330). 
+All our experiments were computed on a workstation using an AMD TR 1950X CPU with 16 cores at 4.0GHz, 128 GB 3200 MHz 
+DDR4 RAM, and Matlab `R2020a` (build `9.8.0.1380330`), as mentioned previously.
 
 ## With perturbation masks
 
