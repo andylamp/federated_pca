@@ -11,6 +11,8 @@ the incoming data, which provides robustness against straggler or failed nodes. 
 using limited-memory, our algorithm exhibits performance that closely matches or outperforms traditional non-federated 
 algorithms, and in the absence of communication latency, it exhibits attractive horizontal scalability.
 
+For more details, please check out the full paper [here](https://arxiv.org/abs/1907.08059).
+
 # Requirements
 
 The code is generally self-contained and all datasets are included or generated thus, in theory, just having `Matlab`  
