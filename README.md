@@ -104,7 +104,7 @@ resources to compute each sub-problem F-PCA exhibits an attractive scaling curve
 
 ![](imgs/amo-fed.jpg)
 
-# Running the evaluation scrips
+# Running the evaluation scripts
 
 Running the test scripts is fairly simple -- just `cd` to the cloned `federated_pca` directory within `Matlab` and then 
 run the respective test files - brief explanation of what they do is shown below:
