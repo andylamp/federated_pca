@@ -1,7 +1,7 @@
 function [U, S, V] = ssvdr(Y, r, params)
 %SSVDR Streaming r-truncated SVD. 
 %
-% This can be a direct replacement to svds albeir much faster and almost 
+% This can be a direct replacement to svds albeit much faster and almost 
 % equivalent in terms of performance.
 %
 % Based on work of Grammenos et al.: https://arxiv.org/abs/1907.08059
