@@ -117,7 +117,7 @@ run the respective test files - brief explanation of what they do is shown below
  * [`test_fpca_synthetic.m`](test_fpca_synthetic.m): performs the synthetic dataset evaluation.
  * [`test_subspace_merge.m`](test_subspace_merge.m): performs the subspace merging tests.
  * [`test_time_order.m`](test_time_order.m): performs the time order independence tests.
- * [`test_utility_loss.m`](test_utility_loss.m): performs the time order independence tests.
+ * [`test_utility_loss.m`](test_utility_loss.m): performs utility evaluation tests for F-PCA vs MOD-SuLQ.
  * [`test_var_vs_dB.m`](test_var_vs_dB.m): performs `d/B` ratio test to evaluate the sample complexity required (helped with the proof).
 
 Please note that you can tweak the relevant section values  if you want to run slightly different experiments but if 
@@ -166,7 +166,7 @@ files are ordered in (descending) lexicographical order:
  * `test_fpca_synthetic.m`: performs the synthetic dataset evaluation.
  * `test_subspace_merge.m`: performs the subspace merging error tests and was used as a test-bed.
  * `test_time_order.m`: performs the time order invariance tests.
- * `test_utility_loss.m`: performs the time order independence tests.
+ * `test_utility_loss.m`: performs utility evaluation tests for F-PCA vs MOD-SuLQ.
  * `test_var_vs_dB.m`: performs `d/B` ratio test to evaluate the sample complexity required (helped with the proof).
  * `updateW.m`: helper function for SPIRIT, performs the update of the subspace for each datapoint.
  
