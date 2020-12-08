@@ -139,7 +139,7 @@ files are ordered in (descending) lexicographical order:
  * `fpca_stream_mod_sulq.m`: Streaming MOD-SuLQ for F-PCA.
  * `fpca_subspace_merge.m`: Merges two subspaces of equal or different ranks.
  * `grams.m`: Gram-Schmidt orthogonalization for a given matrix.
- * `gm_orth.m`: Vectorised Gram-Schmidt orthonormoalisation.
+ * `gm_orth.m`: Vectorised Gram-Schmidt orthonormalisation.
  * `grouse.m`: Original `GROUSE` algorithm code as provided from its authors.
  * `mitliag_pm.m`: Implementation of Mitliagkas Power Method for Streaming PCA.
  * `mod_sulq.m`: An implementation of Mod-SuLQ.
