@@ -204,13 +204,16 @@ respective copyrights.
 If you find our paper useful or use this code, please consider citing our work as such:
 
 ```
-@misc{1907.08059,
-    Author = {Andreas Grammenos and Rodrigo Mendoza-Smith and Cecilia Mascolo and Jon Crowcroft},
-    Title = {Federated Principal Component Analysis},
-    Year = {2020},
-    Eprint = {arXiv:1907.08059},
+@article{grammenos2020federated,
+  title={Federated Principal Component Analysis},
+  author={Grammenos, Andreas and Mendoza Smith, Rodrigo and Crowcroft, Jon and Mascolo, Cecilia},
+  journal={Advances in Neural Information Processing Systems},
+  volume={33},
+  year={2020}
 }
 ```
+
+edit: as of late September 2020, this work has been accepted at NeurIPS 2020 ~ hurray!
 
 # Disclaimer
 
