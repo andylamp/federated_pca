@@ -72,10 +72,10 @@ Finally, we report the resulting subspace quality, and the frobenious norm error
 of each method which clearly show that F-PCA exhibits state-of-the-art performance. 
 
  * Federated PCA (https://arxiv.org/abs/1907.08059)
- * Power Method (https://arxiv.org/pdf/1307.0032.pdf)
- * Frequent Directions (https://arxiv.org/abs/1501.01711.pdf)
- * Robust Frequent Directions (https://arxiv.org/pdf/1705.05067.pdf)
- * GROUSE (https://arxiv.org/pdf/1702.01005.pdf)
+ * Power Method (https://arxiv.org/abs/1307.0032)
+ * Frequent Directions (https://arxiv.org/abs/1501.01711)
+ * Robust Frequent Directions (https://arxiv.org/abs/1705.05067)
+ * GROUSE (https://arxiv.org/abs/1702.01005)
  * SPIRIT (https://dl.acm.org/citation.cfm?id=1083674)
 
 Note that the rank adjusting experiments are performed using only SPIRIT; this is 
@@ -203,7 +203,7 @@ respective copyrights.
 
 If you find our paper useful or use this code, please consider citing our work as such:
 
-```
+```bib
 @article{grammenos2020federated,
   title={Federated Principal Component Analysis},
   author={Grammenos, Andreas and Mendoza Smith, Rodrigo and Crowcroft, Jon and Mascolo, Cecilia},
@@ -233,6 +233,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [3]: http://www.cs.albany.edu/~jhh/courses/readings/desphande.vldb04.model.pdf
 [4]: https://en.wikipedia.org/wiki/ISO_8601
 [5]: https://github.com/andylamp/moses
-[6]: https://papers.nips.cc/paper/4565-near-optimal-differentially-private-principal-components.pdf
+[6]: https://papers.nips.cc/paper/4565-near-optimal-differentially-private-principal-components
 [7]: http://yann.lecun.com/exdb/mnist/
 [8]: https://archive.ics.uci.edu/ml/datasets/wine+quality
